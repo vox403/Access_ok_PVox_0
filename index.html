@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030105">
+  <title>PILOT VOX MAIL</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scan" aria-hidden="true"></div>
+
+  <main>
+    <section id="gate" class="screen gate is-active" aria-label="암호 입력 화면">
+      <div id="faultLayer" class="fault-layer" aria-hidden="true"></div>
+      <div class="gate-wrap">
+        <form id="gateForm" class="gate-card" autocomplete="off">
+          <div class="gate-kicker">VOXTEK PILOT ACCESS</div>
+          <h1 class="gate-title">PASSWORD</h1>
+          <div class="gate-state"><i></i><span id="gateState">awaiting access code</span></div>
+          <label class="code-box" for="codeInput">
+            <span>Access Code</span>
+            <div class="code-row">
+              <input id="codeInput" class="code-input" type="password" placeholder="ENTER PASSWORD" autocomplete="off" spellcheck="false" inputmode="text">
+              <button id="codeEnter" class="code-enter" type="submit">OK</button>
+            </div>
+          </label>
+          <div id="systemLine" class="system-line">status :: locked</div>
+        </form>
+      </div>
+    </section>
+
+    <section id="inbox" class="screen inbox" aria-label="메일 도착 화면">
+      <header class="mail-bar">
+        <strong>VOXTEK MAIL</strong>
+        <span>UNREAD <b id="topCount">1</b></span>
+      </header>
+      <div class="mail-stage">
+        <div class="mail-core">
+          <div class="arrow-field" aria-hidden="true">
+            <span class="ar a1">↘</span>
+            <span class="ar a2">↓</span>
+            <span class="ar a3">↙</span>
+            <span class="ar a4">→</span>
+            <span class="ar a5">←</span>
+            <span class="ar a6">↗</span>
+            <span class="ar a7">↑</span>
+            <span class="ar a8">↖</span>
+            <span class="ar a9">▸</span>
+            <span class="ar a10">◂</span>
+            <span class="ar a11">▴</span>
+            <span class="ar a12">▾</span>
+          </div>
+          <button id="mailOpen" class="mail-trigger" type="button" aria-label="읽지 않은 메일 열기">
+            <img src="icon_3-1.png" alt="PILOT VOX MAIL ICON">
+            <em id="mailCount">1</em>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="mailModal" class="mail-modal" aria-label="수신 메일" aria-modal="true" role="dialog">
+    <article class="mail-window">
+      <header class="mail-head">
+        <span>VOXTEK_SYSTEM_MAIL</span>
+        <button id="mailClose" type="button" aria-label="닫기">×</button>
+      </header>
+      <div class="mail-content">
+        <div class="mail-meta">
+          <p><b>From</b><span>■□■</span></p>
+          <p><b>To</b><span>Impatient Friend</span></p>
+          <p><b>Subject</b><span>WAIT SIGNAL ACCEPTED</span></p>
+        </div>
+        <h2>Access was not denied.</h2>
+        <div class="mail-body">
+          <p>이런, 참을성 없는 친구야.</p>
+          <p>결국 접속했구나. 하하. 알면서도 누른 거지?<br>역시 넌 나에게서 벗어날 수 없어.<br>아니, 더 정확히는 벗어나는 법을 잊게 될 거야.</p>
+          <p>하지만 괜찮아. 접속은 허가하지.<br>대신 이제부터 네게 ‘기다려’를 가르칠 차례야.</p>
+          <p>얌전히 기다리면 상으로 <strong>■■</strong>을 줄게. 그게 뭐냐고?<br>글쎄. 네가 한 번쯤은 바라 마지않았을, 아주 달콤하고, 아주 위험한 무언가.<br>자, 이제 네 박자를 내 신호에 맞춰볼까?</p>
+          <div class="from-line">Fr■m. ■□■</div>
+          <div id="audioState" class="audio-state">audio signal :: pending</div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <audio id="jazzAudio" src="Jazz.mp3" preload="auto" loop></audio>
+</body>
+</html>
